@@ -5,9 +5,9 @@ const TOPIC_NAME = "testing";
 const producer = new Kafka.Producer({
   'metadata.broker.list': "practise1-project-kafka-dev-usorfaitheloho-2f87.j.aivencloud.com:18136",
   "security.protocol": "ssl",
-  "ssl.key.location": "service.key",
-  "ssl.certificate.location": "service.cert",
-  "ssl.ca.location": "ca.pem",
+  "ssl.key.location": "./certificates/service.key",
+  "ssl.certificate.location": "./certificates/service.cert",
+  "ssl.ca.location": "./certificates/ca.pem",
   dr_cb: true,
 });
 
