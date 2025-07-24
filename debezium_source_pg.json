@@ -1,0 +1,21 @@
+{
+  "topic.prefix": "testing",
+  "name": "practice-2-connector",
+  "database.hostname": "practise1-project-postgres-dev-usorfaitheloho-2f87.j.aivencloud.com",
+  "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
+  "database.port": "18134",
+  "database.user": "avnadmin",
+  "errors.log.enable": "true",
+  "database.password": "AVNS_S848flPKhaIAuuAI46J",
+  "errors.log.include.messages": "true",
+  "database.dbname": "defaultdb",
+  "plugin.name": "pgoutput",
+  "slot.name": "aiven_slot2",
+  "publication.name": "aiven_pub",
+  "publication.autocreate.mode": "disabled",
+  "table.include.list": "public.test_table",
+  "transforms": "route",
+  "transforms.route.type": "org.apache.kafka.connect.transforms.RegexRouter",
+  "transforms.route.regex": ".*",
+  "transforms.route.replacement": "testing"
+}
