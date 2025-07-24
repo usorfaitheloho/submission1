@@ -43,7 +43,7 @@ const client = new pg.Client(config);
 client.connect(function (err) {
   if (err) throw err;
 
-  //create a table 
+  //create a table
   const createTableQuery = `
 CREATE TABLE IF NOT EXISTS test_table (
     id SERIAL PRIMARY KEY,
@@ -52,13 +52,33 @@ CREATE TABLE IF NOT EXISTS test_table (
   );
   `;
 
-  client.query(createTableQuery,[], function (err){
+  client.query(createTableQuery, [], function (err) {
     if (err) throw err;
 
     console.log("Table created successfully");
-  })
+  });
 
-//Query the database version
+  const insertStatements = `
+  INSERT INTO test_table (name) VALUES ('Hello from Aiven ');
+  INSERT INTO test_table (name) VALUES ('Hello again ');
+  INSERT INTO test_table (name) VALUES ('Hello once more ');
+  INSERT INTO test_table (name) VALUES ('Hello for the last time ');
+  INSERT INTO test_table (name) VALUES ('Hello for the final time ');
+  INSERT INTO test_table (name) VALUES ('Hello for the ultimate time ');
+  INSERT INTO test_table (name) VALUES ('Hello for the penultimate time ');
+  INSERT INTO test_table (name) VALUES ('Hello for the antepenultimate time ');
+  INSERT INTO test_table (name) VALUES ('Hello for the preantepenultimate time ');
+  INSERT INTO test_table (name) VALUES ('Hello for the Amaris '); 
+  INSERT INTO test_table (name) VALUES ('Hello for the Amaris mum ');
+
+`;
+
+  client.query(insertStatements, (err) => {
+    if (err) throw err;
+    console.log("Multiple rows inserted!");
+  });
+
+  //Query the database version to check version
   client.query("SELECT VERSION()", [], function (err, result) {
     if (err) throw err;
 
